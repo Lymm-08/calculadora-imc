@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora de IMC</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Calculadora de IMC</h1>
+
+      <div class="field-group">
+        <label for="weight">Peso (kg)</label>
+        <input id="weight" type="number" step="0.1" min="0" placeholder="Ex: 70" />
+      </div>
+
+      <div class="field-group">
+        <label for="height">Altura (m)</label>
+        <input id="height" type="number" step="0.01" min="0" placeholder="Ex: 1.75" />
+      </div>
+
+      <div class="buttons">
+        <button id="calculateBtn" class="primary">Calcular IMC</button>
+        <button id="saveBtn" class="secondary" disabled>Salvar no JSON</button>
+      </div>
+
+      <div class="result-card" id="resultCard" hidden>
+        <p>Seu IMC é <strong id="bmiValue"></strong></p>
+        <p id="categoryMessage"></p>
+      </div>
+
+      <div class="status" id="statusMessage"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
