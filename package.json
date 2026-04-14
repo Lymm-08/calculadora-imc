@@ -1,0 +1,14 @@
+{
+  "name": "imc-sistema",
+  "version": "1.0.0",
+  "description": "Sistema de cálculo de IMC com Express, HTML, CSS e JavaScript.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Aluno ETEC",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.4"
+  }
+}
