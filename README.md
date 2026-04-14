@@ -24,4 +24,4 @@
 - `public/` - arquivos frontend
 - `data/records.json` - resultados salvos
 
-> Nota: para enviar o projeto ao GitHub, crie o repositório público e faça `git push` com sua URL.
+
