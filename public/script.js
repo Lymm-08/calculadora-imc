@@ -8,6 +8,14 @@ const resultCard = document.getElementById('resultCard');
 const statusMessage = document.getElementById('statusMessage');
 
 let lastCalculation = null;
+const isFileProtocol = window.location.protocol === 'file:';
+const apiBase = window.location.origin;
+
+if (isFileProtocol) {
+  statusMessage.textContent = 'Abra o app via servidor: execute npm start e acesse http://localhost:3000';
+  statusMessage.style.color = '#d9480f';
+  saveBtn.disabled = true;
+}
 
 function calcularIMC(peso, altura) {
   return peso / (altura * altura);
@@ -59,7 +67,7 @@ saveBtn.addEventListener('click', async () => {
   }
 
   try {
-    const response = await fetch('/save', {
+    const response = await fetch(`${apiBase}/save`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(lastCalculation)
