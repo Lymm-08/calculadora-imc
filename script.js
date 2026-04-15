@@ -58,5 +58,5 @@ saveBtn.addEventListener('click', () => {
     return;
   }
 
-  exibirMensagem('Salvar não pode ser usado no site estático. Use o app localmente.');
+  // Funcionalidade de salvar removida ou desabilitada
 });
