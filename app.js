@@ -37,10 +37,30 @@ app.post('/save', async (req, res) => {
       }
     }
 
-    currentData.push(record);
+    const seenKeys = new Set();
+    const uniqueData = [];
+
+    const recordKey = (item) => `${item.weight}-${item.height}-${item.bmi}-${item.category}`;
+
+    for (const item of currentData) {
+      const key = recordKey(item);
+      if (!seenKeys.has(key)) {
+        seenKeys.add(key);
+        uniqueData.push(item);
+      }
+    }
+
+    currentData = uniqueData;
+    const newKey = recordKey(record);
+    const duplicate = currentData.some((item) => recordKey(item) === newKey);
+
+    if (!duplicate) {
+      currentData.push(record);
+    }
+
     await fs.writeFile(DATA_FILE, JSON.stringify(currentData, null, 2), 'utf8');
 
-    res.json({ success: true, record });
+    res.json({ success: true, record, duplicate });
   } catch (error) {
     console.error('Erro ao salvar dados:', error);
     res.status(500).json({ error: 'Falha ao salvar os dados.' });

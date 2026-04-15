@@ -78,10 +78,15 @@ saveBtn.addEventListener('click', async () => {
     const result = await response.json();
 
     if (!response.ok) {
-      throw new Error(result.error || 'Erro ao salvar.');
+      throw new Error(result.error || `Erro ao salvar (${response.status}).`);
     }
 
-    exibirMensagem('Dados salvos com sucesso!');
+    if (result.duplicate) {
+      exibirMensagem('Registro já existe no JSON; duplicata não salva.');
+    } else {
+      exibirMensagem('Dados salvos com sucesso!');
+    }
+
     saveBtn.disabled = true;
   } catch (error) {
     exibirMensagem(error.message, 'error');
