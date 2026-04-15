@@ -52,11 +52,29 @@ calculateBtn.addEventListener('click', () => {
   exibirMensagem('IMC calculado. O botão Salvar não funcionará no GitHub Pages.');
 });
 
-saveBtn.addEventListener('click', () => {
+saveBtn.addEventListener('click', async () => {
   if (!lastCalculation) {
-    exibirMensagem('Calcule o IMC antes de salvar.', 'error');
+    // exibirMensagem('Calcule o IMC antes de salvar.', 'error');
     return;
   }
 
-  // Funcionalidade de salvar removida ou desabilitada
+  try {
+    const response = await fetch('/save', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(lastCalculation)
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      // exibirMensagem('Dados salvos com sucesso!');
+    } else {
+      // exibirMensagem(result.error || 'Erro ao salvar dados.', 'error');
+    }
+  } catch (error) {
+    // exibirMensagem('Erro de conexão. Verifique se o servidor está rodando.', 'error');
+  }
 });
