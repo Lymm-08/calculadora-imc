@@ -97,6 +97,11 @@ button:disabled {
   cursor: not-allowed;
 }
 
+button:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
 .result-card {
   background: #f8fbff;
   border: 1px solid #dbe6f4;

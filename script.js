@@ -49,7 +49,7 @@ calculateBtn.addEventListener('click', () => {
   saveBtn.disabled = false;
   lastCalculation = { weight, height, bmi: imc.toFixed(2), category };
 
-  exibirMensagem('IMC calculado. O botão Salvar não funcionará no GitHub Pages.');
+  exibirMensagem('IMC calculado.');
 });
 
 saveBtn.addEventListener('click', async () => {
