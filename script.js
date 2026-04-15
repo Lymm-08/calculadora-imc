@@ -8,6 +8,14 @@ const resultCard = document.getElementById('resultCard');
 const statusMessage = document.getElementById('statusMessage');
 
 let lastCalculation = null;
+const isFileProtocol = window.location.protocol === 'file:';
+const apiBase = window.location.origin;
+
+if (isFileProtocol) {
+  statusMessage.textContent = 'Abra o app via servidor: execute npm start e acesse http://localhost:3000';
+  statusMessage.style.color = '#d9480f';
+  saveBtn.disabled = true;
+}
 
 function calcularIMC(peso, altura) {
   return peso / (altura * altura);
@@ -46,20 +54,20 @@ calculateBtn.addEventListener('click', () => {
   bmiValue.textContent = imc.toFixed(2);
   categoryMessage.textContent = category;
   resultCard.hidden = false;
-  saveBtn.disabled = false;
+  saveBtn.disabled = isFileProtocol;
   lastCalculation = { weight, height, bmi: imc.toFixed(2), category };
 
-  exibirMensagem('IMC calculado.');
+  exibirMensagem('IMC calculado. Agora você pode salvar os dados no JSON.');
 });
 
 saveBtn.addEventListener('click', async () => {
   if (!lastCalculation) {
-    // exibirMensagem('Calcule o IMC antes de salvar.', 'error');
+    exibirMensagem('Calcule o IMC antes de salvar.', 'error');
     return;
   }
 
   try {
-    const response = await fetch('/save', {
+    const response = await fetch(`${apiBase}/save`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -69,12 +77,13 @@ saveBtn.addEventListener('click', async () => {
 
     const result = await response.json();
 
-    if (response.ok) {
-      // exibirMensagem('Dados salvos com sucesso!');
-    } else {
-      // exibirMensagem(result.error || 'Erro ao salvar dados.', 'error');
+    if (!response.ok) {
+      throw new Error(result.error || 'Erro ao salvar.');
     }
+
+    exibirMensagem('Dados salvos com sucesso!');
+    saveBtn.disabled = true;
   } catch (error) {
-    // exibirMensagem('Erro de conexão. Verifique se o servidor está rodando.', 'error');
+    exibirMensagem(error.message, 'error');
   }
 });
