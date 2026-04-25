@@ -1,13 +1,8 @@
 # Projeto IMC - ETEC Albert Einstein
 
-## Requisitos
+
 - Sistema para calcular IMC usando HTML, CSS e JavaScript.
 - Backend em Express para salvar os resultados em arquivo JSON.
-
-## Como usar
-1. Instalar dependências: `npm install`
-2. Iniciar o servidor: `npm start`
-3. Acessar: `http://localhost:3000`
 
 ## Funcionalidades
 - Dois inputs: peso (kg) e altura (m)
