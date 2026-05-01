@@ -1,22 +1,19 @@
-# Projeto IMC - ETEC Albert Einstein
+# BMI Project - ETEC Albert Einstein
 
+- System to calculate BMI using HTML, CSS, and JavaScript.
+- Express backend to save results in a JSON file.
 
-- Sistema para calcular IMC usando HTML, CSS e JavaScript.
-- Backend em Express para salvar os resultados em arquivo JSON.
+## Features
+- Two inputs: weight (kg) and height (m)
+- Button to calculate BMI
+- Button to save data in `data/records.json`
+- Classification messages:
+  - `Underweight` for BMI < 18.5
+  - `Normal weight` for 18.5 <= BMI < 24.9
+  - `Overweight` for 24.9 <= BMI < 29.9
+  - `Obesity` for BMI >= 29
 
-## Funcionalidades
-- Dois inputs: peso (kg) e altura (m)
-- Botão para calcular o IMC
-- Botão para salvar dados em `data/records.json`
-- Mensagens de classificação:
-  - `Abaixo do peso` para IMC < 18.5
-  - `Peso normal` para 18.5 <= IMC < 24.9
-  - `Sobrepeso` para 24.9 <= IMC < 29.9
-  - `Obesidade` para IMC >= 29
-
-## Estrutura
-- `app.js` - servidor Express
-- `public/` - arquivos frontend
-- `data/records.json` - resultados salvos
-
-
+## Structure
+- `app.js` - Express server
+- `public/` - frontend files
+- `data/records.json` - saved results
