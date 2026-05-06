@@ -6,7 +6,7 @@
 ## 🚀 Demo
 
 <p align="center">
-  <img src="./public/gif-imc.gif" width="45%" />
+  <img src="public/gif-imc.gif" width="45%" />
 </p>
 
 ## ✨ Features
