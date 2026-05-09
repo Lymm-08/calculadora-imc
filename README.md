@@ -17,3 +17,6 @@
 - `app.js` - Express server
 - `public/` - frontend files
 - `data/records.json` - saved results
+
+## Demonstration
+![Project Demonstration](gif-imc.gif)
