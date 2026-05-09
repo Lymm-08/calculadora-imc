@@ -19,6 +19,9 @@
 - `data/records.json` - saved results
 
 ## Demonstration
-![Project Demonstration](gif-imc.gif)  <p align="center">
-  <img src="imc-json.jpeg" alt="Project Demonstration" width="400"/>
+
+<p align="center">
+  <img src="gif-imc.gif" alt="Project Demonstration" width="350" height="350" style="object-fit: cover;"/>
+  
+  <img src="imc-json.jpeg" alt="IMC JSON" width="350" height="350" style="object-fit: cover;"/>
 </p>
