@@ -19,4 +19,4 @@
 - `data/records.json` - saved results
 
 ## Demonstration
-![Project Demonstration](gif-imc.gif)
+![Project Demonstration](gif-imc.gif)  ![Project Demonstration](imc-json.jpeg)  
